@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Spanish Classroom Objects Flashcards</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      background-color: #f0f8ff;
+    }
+    #flashcard {
+      font-size: 2em;
+      margin: 20px;
+      padding: 40px;
+      border: 2px solid #1d3658;
+      border-radius: 10px;
+      background-color: #a7dadc;
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    button {
+      font-size: 1em;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      background-color: #e63746;
+      color: white;
+    }
+    button:hover {
+      background-color: #c12b37;
+    }
+    button:disabled {
+      background-color: #888;
+      cursor: not-allowed;
+    }
+    #answer {
+      font-size: 1.5em;
+      margin-top: 20px;
+      color: #447a9c;
+    }
+    #modeButtons {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Spanish Classroom Objects</h1>
+
+  <div id="flashcard">Click Forward to Start</div>
+  <div id="answer"></div>
+
+  <div>
+    <button id="backBtn" onclick="prevCard()">Backward</button>
+    <button onclick="showAnswer()">Reveal Answer</button>
+    <button id="forwardBtn" onclick="nextCard()">Forward</button>
+  </div>
+
+  <div id="modeButtons">
+    <button onclick="setMode('normal')">Normal Order</button>
+    <button onclick="setMode('random')">Random With Repetition</button>
+    <button onclick="setMode('randomNoRepeat')">Random Without Repetition</button>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <button onclick="toggleLanguage()">Toggle English / Spanish</button>
+  </div>
+
+  <script>
+    const flashcards = [
+      {english: "pencil", spanish: "el lápiz"},
+      {english: "book", spanish: "el libro"},
+      {english: "notebook", spanish: "el cuaderno"},
+      {english: "backpack", spanish: "la mochila"},
+      {english: "desk", spanish: "la mesa"},
+      {english: "chair", spanish: "la silla"},
+      {english: "board", spanish: "la pizarra"},
+      {english: "marker", spanish: "el marcador"},
+      {english: "eraser", spanish: "el borrador"},
+      {english: "paper", spanish: "el papel"},
+      {english: "ruler", spanish: "la regla"},
+      {english: "door", spanish: "la puerta"},
+      {english: "window", spanish: "la ventana"}
+    ];
+
+    let currentIndex = 0;
+    let mode = 'normal'; // normal, random, randomNoRepeat
+    let usedIndices = [];
+    let englishToSpanish = true; // true: English → Spanish, false: Spanish → English
+
+    const flashcardDiv = document.getElementById("flashcard");
+    const answerDiv = document.getElementById("answer");
+    const forwardBtn = document.getElementById("forwardBtn");
+
+    function showCard() {
+      if (englishToSpanish) {
+        flashcardDiv.textContent = flashcards[currentIndex].english;
+      } else {
+        flashcardDiv.textContent = flashcards[currentIndex].spanish;
+      }
+      answerDiv.textContent = "";
+      if (mode !== 'randomNoRepeat') {
+        forwardBtn.disabled = false;
+      }
+    }
+
+    function nextCard() {
+      if (mode === 'normal') {
+        currentIndex = (currentIndex + 1) % flashcards.length;
+      } else if (mode === 'random') {
+        currentIndex = Math.floor(Math.random() * flashcards.length);
+      } else if (mode === 'randomNoRepeat') {
+        if (usedIndices.length === flashcards.length) {
+          forwardBtn.disabled = true;
+          alert("All cards have been shown!");
+          return;
+        }
+        let randIndex;
+        do {
+          randIndex = Math.floor(Math.random() * flashcards.length);
+        } while (usedIndices.includes(randIndex));
+        usedIndices.push(randIndex);
+        currentIndex = randIndex;
+      }
+      showCard();
+    }
+
+    function prevCard() {
+      if (mode === 'normal') {
+        currentIndex = (currentIndex - 1 + flashcards.length) % flashcards.length;
+      } else if (mode === 'randomNoRepeat') {
+        if (usedIndices.length > 1) {
+          usedIndices.pop(); 
+          currentIndex = usedIndices[usedIndices.length - 1];
+          forwardBtn.disabled = false;
+        }
+      } else {
+        currentIndex = Math.floor(Math.random() * flashcards.length);
+      }
+      showCard();
+    }
+
+    function showAnswer() {
+      if (englishToSpanish) {
+        answerDiv.textContent = flashcards[currentIndex].spanish;
+      } else {
+        answerDiv.textContent = flashcards[currentIndex].english;
+      }
+    }
+
+    function setMode(newMode) {
+      mode = newMode;
+      usedIndices = [];
+      forwardBtn.disabled = false;
+      alert("Mode set to: " + newMode);
+      if (mode === 'randomNoRepeat') {
+        nextCard();
+      } else {
+        showCard();
+      }
+    }
+
+    function toggleLanguage() {
+      englishToSpanish = !englishToSpanish;
+      showCard();
+    }
+
+    // Initialize first card
+    showCard();
+  </script>
+
+</body>
+</html>
+
+
