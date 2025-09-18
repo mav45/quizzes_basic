@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spanish Classroom Objects Quiz</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    padding: 20px;
+  }
+  h1 { text-align: center; }
+  .quiz-container {
+    max-width: 600px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  .question {
+    margin-bottom: 15px;
+  }
+  button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    font-size: 16px;
+  }
+  #result {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  fieldset {
+    border: none;
+  }
+  input[name="studentName"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+  #wrongAnswers {
+    margin-top: 10px;
+    color: #d9534f;
+  }
+</style>
+</head>
+<body>
+  <h1>Spanish Classroom Objects Quiz</h1>
+  <div class="quiz-container">
+    <label for="studentName">Enter your full name:</label>
+    <input type="text" id="studentName" placeholder="Full Name">
+    
+    <form id="quizForm"></form>
+    <button onclick="submitQuiz()">Submit Quiz</button>
+    <div id="result"></div>
+    <div id="wrongAnswers"></div>
+  </div>
+
+<script>
+const questions = [
+  { q: "Pen", options: ["Lápiz", "Pluma", "Libro", "Regla"], answer: "Pluma" },
+  { q: "Pencil", options: ["Lápiz", "Marcador", "Borrador", "Cuaderno"], answer: "Lápiz" },
+  { q: "Eraser", options: ["Goma de borrar", "Tijeras", "Pegamento", "Pizarra"], answer: "Goma de borrar" },
+  { q: "Book", options: ["Cuaderno", "Libro", "Mesa", "Silla"], answer: "Libro" },
+  { q: "Chair", options: ["Silla", "Mesa", "Pizarra", "Estuche"], answer: "Silla" },
+  { q: "Desk", options: ["Silla", "Mesa", "Pizarra", "Pegamento"], answer: "Mesa" },
+  { q: "Ruler", options: ["Regla", "Lápiz", "Marcador", "Tijeras"], answer: "Regla" },
+  { q: "Scissors", options: ["Tijeras", "Goma", "Libro", "Pluma"], answer: "Tijeras" },
+  { q: "Glue", options: ["Pegamento", "Marcador", "Cuaderno", "Regla"], answer: "Pegamento" },
+  { q: "Notebook", options: ["Libro", "Cuaderno", "Estuche", "Mesa"], answer: "Cuaderno" },
+  { q: "Marker", options: ["Marcador", "Pluma", "Tijeras", "Goma"], answer: "Marcador" },
+  { q: "Backpack", options: ["Mochila", "Mesa", "Pizarra", "Estuche"], answer: "Mochila" },
+  { q: "Locker", options: ["Casillero", "Estuche", "Silla", "Regla"], answer: "Casillero" },
+  { q: "Highlighter", options: ["Resaltador", "Lápiz", "Pegamento", "Marcador"], answer: "Resaltador" },
+  { q: "Folder", options: ["Carpeta", "Libro", "Estuche", "Pizarra"], answer: "Carpeta" },
+  { q: "Pointer", options: ["Puntero", "Regla", "Silla", "Mesa"], answer: "Puntero" },
+  { q: "Pencil Case", options: ["Estuche", "Cuaderno", "Mochila", "Marcador"], answer: "Estuche" },
+  { q: "Blackboard", options: ["Pizarra", "Mesa", "Silla", "Libro"], answer: "Pizarra" },
+  { q: "Chalk", options: ["Tiza", "Goma", "Pluma", "Regla"], answer: "Tiza" },
+  { q: "Calculator", options: ["Calculadora", "Libro", "Marcador", "Mesa"], answer: "Calculadora" }
+];
+
+// Generate quiz
+const quizForm = document.getElementById("quizForm");
+questions.forEach((item, index) => {
+  const qDiv = document.createElement("div");
+  qDiv.className = "question";
+  qDiv.innerHTML = `<p>${index + 1}. What is the Spanish word for <strong>${item.q}</strong>?</p>`;
+  
+  const fieldset = document.createElement("fieldset");
+  item.options.forEach(option => {
+    const label = document.createElement("label");
+    label.style.display = "block";
+    label.innerHTML = `<input type="radio" name="q${index}" value="${option}"> ${option}`;
+    fieldset.appendChild(label);
+  });
+  
+  qDiv.appendChild(fieldset);
+  quizForm.appendChild(qDiv);
+});
+
+let quizSubmitted = false;
+
+function submitQuiz() {
+  if (quizSubmitted) return; // prevent multiple submissions
+  const studentName = document.getElementById("studentName").value.trim();
+  if (!studentName) {
+    alert("Please enter your full name before submitting.");
+    return;
+  }
+
+  let score = 0;
+  let wrong = [];
+
+  questions.forEach((item, index) => {
+    const selected = document.querySelector(`input[name="q${index}"]:checked`);
+    if (selected && selected.value === item.answer) {
+      score++;
+    } else {
+      // Include question number before the correction
+      wrong.push(`#${index + 1}, ${item.q} → correct answer: ${item.answer}`);
+    }
+  });
+  
+  const grade = (score / questions.length) * 100;
+  document.getElementById("result").innerText = `${studentName} got a ${grade.toFixed(0)} / 100`;
+  
+  if (wrong.length > 0) {
+    document.getElementById("wrongAnswers").innerHTML = `You got the following wrong:<br>${wrong.join('<br>')}`;
+  } else {
+    document.getElementById("wrongAnswers").innerHTML = "Perfect score! 🎉";
+  }
+
+  quizSubmitted = true;
+}
+</script>
+</body>
+</html>
