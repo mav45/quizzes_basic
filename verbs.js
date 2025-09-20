@@ -1,7 +1,5 @@
 const verbs = [
-  // HABLAR (to speak)
-
-  // Indicative - Simple Tenses
+// HABLAR (to speak)
   { infinitive:"hablar", translation:"to speak", tense:"present",
     conjugations:{yo:"hablo", tú:"hablas", "él/ella/usted":"habla", nosotros:"hablamos", vosotros:"habláis", "ellos/ellas/ustedes":"hablan"}},
   { infinitive:"hablar", translation:"to speak", tense:"preterite",
@@ -12,8 +10,6 @@ const verbs = [
     conjugations:{yo:"hablaré", tú:"hablarás", "él/ella/usted":"hablará", nosotros:"hablaremos", vosotros:"hablaréis", "ellos/ellas/ustedes":"hablarán"}},
   { infinitive:"hablar", translation:"to speak", tense:"conditional",
     conjugations:{yo:"hablaría", tú:"hablarías", "él/ella/usted":"hablaría", nosotros:"hablaríamos", vosotros:"hablaríais", "ellos/ellas/ustedes":"hablarían"}},
-
-  // Indicative - Perfect Tenses
   { infinitive:"hablar", translation:"to speak", tense:"present perfect",
     conjugations:{yo:"he hablado", tú:"has hablado", "él/ella/usted":"ha hablado", nosotros:"hemos hablado", vosotros:"habéis hablado", "ellos/ellas/ustedes":"han hablado"}},
   { infinitive:"hablar", translation:"to speak", tense:"pluscuamperfecto",
@@ -22,16 +18,71 @@ const verbs = [
     conjugations:{yo:"habré hablado", tú:"habrás hablado", "él/ella/usted":"habrá hablado", nosotros:"habremos hablado", vosotros:"habréis hablado", "ellos/ellas/ustedes":"habrán hablado"}},
   { infinitive:"hablar", translation:"to speak", tense:"conditional perfect",
     conjugations:{yo:"habría hablado", tú:"habrías hablado", "él/ella/usted":"habría hablado", nosotros:"habríamos hablado", vosotros:"habríais hablado", "ellos/ellas/ustedes":"habrían hablado"}},
-
-  // Subjunctive - Simple
   { infinitive:"hablar", translation:"to speak", tense:"present subjunctive",
     conjugations:{yo:"hable", tú:"hables", "él/ella/usted":"hable", nosotros:"hablemos", vosotros:"habléis", "ellos/ellas/ustedes":"hablen"}},
   { infinitive:"hablar", translation:"to speak", tense:"imperfect subjunctive",
     conjugations:{yo:"hablara", tú:"hablaras", "él/ella/usted":"hablara", nosotros:"habláramos", vosotros:"hablarais", "ellos/ellas/ustedes":"hablaran"}},
-
-  // Subjunctive - Perfect
   { infinitive:"hablar", translation:"to speak", tense:"present perfect subjunctive",
     conjugations:{yo:"haya hablado", tú:"hayas hablado", "él/ella/usted":"haya hablado", nosotros:"hayamos hablado", vosotros:"hayáis hablado", "ellos/ellas/ustedes":"hayan hablado"}},
   { infinitive:"hablar", translation:"to speak", tense:"past perfect subjunctive",
-    conjugations:{yo:"hubiera hablado", tú:"hubieras hablado", "él/ella/usted":"hubiera hablado", nosotros:"hubiéramos hablado", vosotros:"hubierais hablado", "ellos/ellas/ustedes":"hubieran hablado"}}
+    conjugations:{yo:"hubiera hablado", tú:"hubieras hablado", "él/ella/usted":"hubiera hablado", nosotros:"hubiéramos hablado", vosotros:"hubierais hablado", "ellos/ellas/ustedes":"hubieran hablado"}},
+
+  // COMER (to eat)
+  { infinitive:"comer", translation:"to eat", tense:"present",
+    conjugations:{yo:"como", tú:"comes", "él/ella/usted":"come", nosotros:"comemos", vosotros:"coméis", "ellos/ellas/ustedes":"comen"}},
+  { infinitive:"comer", translation:"to eat", tense:"preterite",
+    conjugations:{yo:"comí", tú:"comiste", "él/ella/usted":"comió", nosotros:"comimos", vosotros:"comisteis", "ellos/ellas/ustedes":"comieron"}},
+  { infinitive:"comer", translation:"to eat", tense:"imperfect",
+    conjugations:{yo:"comía", tú:"comías", "él/ella/usted":"comía", nosotros:"comíamos", vosotros:"comíais", "ellos/ellas/ustedes":"comían"}},
+  { infinitive:"comer", translation:"to eat", tense:"future",
+    conjugations:{yo:"comeré", tú:"comerás", "él/ella/usted":"comerá", nosotros:"comeremos", vosotros:"comeréis", "ellos/ellas/ustedes":"comerán"}},
+  { infinitive:"comer", translation:"to eat", tense:"conditional",
+    conjugations:{yo:"comería", tú:"comerías", "él/ella/usted":"comería", nosotros:"comeríamos", vosotros:"comeríais", "ellos/ellas/ustedes":"comerían"}},
+  { infinitive:"comer", translation:"to eat", tense:"present perfect",
+    conjugations:{yo:"he comido", tú:"has comido", "él/ella/usted":"ha comido", nosotros:"hemos comido", vosotros:"habéis comido", "ellos/ellas/ustedes":"han comido"}},
+  { infinitive:"comer", translation:"to eat", tense:"pluscuamperfecto",
+    conjugations:{yo:"había comido", tú:"habías comido", "él/ella/usted":"había comido", nosotros:"habíamos comido", vosotros:"habíais comido", "ellos/ellas/ustedes":"habían comido"}},
+  { infinitive:"comer", translation:"to eat", tense:"future perfect",
+    conjugations:{yo:"habré comido", tú:"habrás comido", "él/ella/usted":"habrá comido", nosotros:"habremos comido", vosotros:"habréis comido", "ellos/ellas/ustedes":"habrán comido"}},
+  { infinitive:"comer", translation:"to eat", tense:"conditional perfect",
+    conjugations:{yo:"habría comido", tú:"habrías comido", "él/ella/usted":"habría comido", nosotros:"habríamos comido", vosotros:"habríais comido", "ellos/ellas/ustedes":"habrían comido"}},
+  { infinitive:"comer", translation:"to eat", tense:"present subjunctive",
+    conjugations:{yo:"coma", tú:"comas", "él/ella/usted":"coma", nosotros:"comamos", vosotros:"comáis", "ellos/ellas/ustedes":"coman"}},
+  { infinitive:"comer", translation:"to eat", tense:"imperfect subjunctive",
+    conjugations:{yo:"comiera", tú:"comieras", "él/ella/usted":"comiera", nosotros:"comiéramos", vosotros:"comierais", "ellos/ellas/ustedes":"comieran"}},
+  { infinitive:"comer", translation:"to eat", tense:"present perfect subjunctive",
+    conjugations:{yo:"haya comido", tú:"hayas comido", "él/ella/usted":"haya comido", nosotros:"hayamos comido", vosotros:"hayáis comido", "ellos/ellas/ustedes":"hayan comido"}},
+  { infinitive:"comer", translation:"to eat", tense:"past perfect subjunctive",
+    conjugations:{yo:"hubiera comido", tú:"hubieras comido", "él/ella/usted":"hubiera comido", nosotros:"hubiéramos comido", vosotros:"hubierais comido", "ellos/ellas/ustedes":"hubieran comido"}},
+
+  // VIVIR (to live)
+  { infinitive:"vivir", translation:"to live", tense:"present",
+    conjugations:{yo:"vivo", tú:"vives", "él/ella/usted":"vive", nosotros:"vivimos", vosotros:"vivís", "ellos/ellas/ustedes":"viven"}},
+  { infinitive:"vivir", translation:"to live", tense:"preterite",
+    conjugations:{yo:"viví", tú:"viviste", "él/ella/usted":"vivió", nosotros:"vivimos", vosotros:"vivisteis", "ellos/ellas/ustedes":"vivieron"}},
+  { infinitive:"vivir", translation:"to live", tense:"imperfect",
+    conjugations:{yo:"vivía", tú:"vivías", "él/ella/usted":"vivía", nosotros:"vivíamos", vosotros:"vivíais", "ellos/ellas/ustedes":"vivían"}},
+  { infinitive:"vivir", translation:"to live", tense:"future",
+    conjugations:{yo:"viviré", tú:"vivirás", "él/ella/usted":"vivirá", nosotros:"viviremos", vosotros:"viviréis", "ellos/ellas/ustedes":"vivirán"}},
+  { infinitive:"vivir", translation:"to live", tense:"conditional",
+    conjugations:{yo:"viviría", tú:"vivirías", "él/ella/usted":"viviría", nosotros:"viviríamos", vosotros:"viviríais", "ellos/ellas/ustedes":"vivirían"}},
+  { infinitive:"vivir", translation:"to live", tense:"present perfect",
+    conjugations:{yo:"he vivido", tú:"has vivido", "él/ella/usted":"ha vivido", nosotros:"hemos vivido", vosotros:"habéis vivido", "ellos/ellas/ustedes":"han vivido"}},
+  { infinitive:"vivir", translation:"to live", tense:"pluscuamperfecto",
+    conjugations:{yo:"había vivido", tú:"habías vivido", "él/ella/usted":"había vivido", nosotros:"habíamos vivido", vosotros:"habíais vivido", "ellos/ellas/ustedes":"habían vivido"}},
+  { infinitive:"vivir", translation:"to live", tense:"future perfect",
+    conjugations:{yo:"habré vivido", tú:"habrás vivido", "él/ella/usted":"habrá vivido", nosotros:"habremos vivido", vosotros:"habréis vivido", "ellos/ellas/ustedes":"habrán vivido"}},
+  { infinitive:"vivir", translation:"to live", tense:"conditional perfect",
+    conjugations:{yo:"habría vivido", tú:"habrías vivido", "él/ella/usted":"habría vivido", nosotros:"habríamos vivido", vosotros:"habríais vivido", "ellos/ellas/ustedes":"habrían vivido"}},
+  { infinitive:"vivir", translation:"to live", tense:"present subjunctive",
+    conjugations:{yo:"viva", tú:"vivas", "él/ella/usted":"viva", nosotros:"vivamos", vosotros:"viváis", "ellos/ellas/ustedes":"vivan"}},
+  { infinitive:"vivir", translation:"to live", tense:"imperfect subjunctive",
+    conjugations:{yo:"viviera", tú:"vivieras", "él/ella/usted":"viviera", nosotros:"viviéramos", vosotros:"vivierais", "ellos/ellas/ustedes":"vivieran"}},
+  { infinitive:"vivir", translation:"to live", tense:"present perfect subjunctive",
+    conjugations:{yo:"haya vivido", tú:"hayas vivido", "él/ella/usted":"haya vivido", nosotros:"hayamos vivido", vosotros:"hayáis vivido", "ellos/ellas/ustedes":"hayan vivido"}},
+  { infinitive:"vivir", translation:"to live", tense:"past perfect subjunctive",
+    conjugations:{yo:"hubiera vivido", tú:"hubieras vivido", "él/ella/usted":"hubiera vivido", nosotros:"hubiéramos vivido", vosotros:"hubierais vivido", "ellos/ellas/ustedes":"hubieran vivido"}}
+  
+  // You can continue this pattern for the rest of the top 25 verbs:
+  // ser, e
 ];
