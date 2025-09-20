@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spanish Conjugation Trainer</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .btn { margin: 5px; padding: 10px; font-size: 16px; cursor: pointer; }
+    #options button[disabled] { opacity: 0.6; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+  <h1>Spanish Conjugation Trainer</h1>
+
+  <label for="tense">Select Tense:</label>
+  <select id="tense">
+    <option value="present">Present</option>
+    <option value="preterite">Preterite</option>
+    <option value="imperfect">Imperfect</option>
+  </select>
+  <button id="startBtn">Start</button>
+
+  <div id="question" style="margin-top:15px;"></div>
+  <div id="options"></div>
+  <div id="feedback" style="margin-top:10px;font-weight:bold;"></div>
+  <div style="margin-top:10px;">Score: <span id="score">0</span> | Streak: <span id="streak">0</span></div>
+
+  <!-- Load scripts in order -->
+  <script src="verbs.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+
