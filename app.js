@@ -7,20 +7,6 @@ function getRandom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-// Populate the tense dropdown from verbs.js
-function populateDropdown() {
-  const tenseSelect = document.getElementById("tense");
-  tenseSelect.innerHTML = ""; // clear any existing options
-
-  const tenses = [...new Set(verbs.map(v => v.tense))]; // unique tenses
-  tenses.forEach(t => {
-    const opt = document.createElement("option");
-    opt.value = t;
-    opt.textContent = t.charAt(0).toUpperCase() + t.slice(1); // capitalize
-    tenseSelect.appendChild(opt);
-  });
-}
-
 // Start the quiz
 function startQuiz() {
   score = 0;
@@ -50,7 +36,6 @@ function nextQuestion() {
   const optionsDiv = document.getElementById("options");
   optionsDiv.innerHTML = "";
 
-  // Unique distractors excluding the correct answer
   const uniqueConjugations = [...new Set(Object.values(verb.conjugations))].filter(a => a !== currentCorrect);
 
   const distractors = [];
@@ -88,13 +73,6 @@ function checkAnswer(selected) {
   setTimeout(nextQuestion, 1000);
 }
 
-// Initialize after DOM loads
-document.addEventListener("DOMContentLoaded", () => {
-  populateDropdown();
-  document.getElementById("startBtn").addEventListener("click", startQuiz);
-});
-
-// Initialize
 document.getElementById("startBtn").addEventListener("click", startQuiz);
-populateDropdown(); // populate dropdown on load
+
 
