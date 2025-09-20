@@ -1,5 +1,3 @@
-import verbs from "./verbs.js"; // make sure the path is correct
-
 let score = 0;
 let streak = 0;
 let currentCorrect = null;
@@ -9,7 +7,7 @@ function getRandom(arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-// Populate the tense dropdown from the dataset
+// Populate the tense dropdown from verbs.js
 function populateDropdown() {
   const tenseSelect = document.getElementById("tense");
   tenseSelect.innerHTML = ""; // clear any existing options
@@ -89,6 +87,12 @@ function checkAnswer(selected) {
   document.getElementById("streak").textContent = streak;
   setTimeout(nextQuestion, 1000);
 }
+
+// Initialize after DOM loads
+document.addEventListener("DOMContentLoaded", () => {
+  populateDropdown();
+  document.getElementById("startBtn").addEventListener("click", startQuiz);
+});
 
 // Initialize
 document.getElementById("startBtn").addEventListener("click", startQuiz);
